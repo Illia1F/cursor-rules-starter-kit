@@ -1,6 +1,7 @@
 ---
-description: This rule explains Tailwind CSS conventions, utility classes, and best practices for modern UI development.
+description: Apply these Tailwind CSS conventions for consistent, accessible, and maintainable UI development. Use when writing HTML/JSX with Tailwind classes.
 alwaysApply: false
+tags: ['tailwind', 'css', 'ui', 'frontend', 'responsive', 'accessibility']
 ---
 
 ## Tailwind CSS rules
@@ -20,11 +21,16 @@ alwaysApply: false
 Example of Properly Ordered Classes
 
 ```html
-<!--CORRECT: Properly ordered -->
+<!-- CORRECT: Properly ordered -->
 <div
-	class="flex items-center justify-between w-full max-w-4xl px-6 py-4 text-lg font-semibold text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 sm:px-8 md:text-xl lg:max-w-6xl">
-	<!-- WRONG: Random order -->
-	<div class="text-lg bg-white hover:shadow-md flex px-6 w-full focus:ring-2 items-center rounded-lg sm:px-8"></div>
+	class="flex items-center justify-between w-full max-w-4xl px-6 py-4 text-lg font-semibold text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm focus:outline-none hover:shadow-md focus:ring-2 focus:ring-blue-500 sm:px-8 md:text-xl lg:max-w-6xl">
+	Content here
+</div>
+
+<!-- WRONG: Random order (more obviously wrong) -->
+<div
+	class="bg-white text-lg hover:shadow-md flex px-6 w-full focus:ring-2 items-center rounded-lg text-gray-800 border border-gray-200 shadow-sm sm:px-8 justify-between max-w-4xl py-4 font-semibold">
+	Content here
 </div>
 ```
 
@@ -39,6 +45,18 @@ Example of Properly Ordered Classes
 
 <!-- Spacing progression -->
 <div class="p-4 sm:p-6 md:p-8 lg:p-12">Progressive spacing</div>
+```
+
+# Use dark mode variants:
+
+```html
+<div class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">Dark mode support</div>
+```
+
+# Use animation utilities:
+
+```html
+<button class="animate-pulse hover:animate-bounce">Animated button</button>
 ```
 
 # Use interactive states:
@@ -132,20 +150,13 @@ Example of Properly Ordered Classes
 <!-- Focus indicators -->
 <button
 	class="px-4 py-2 bg-blue-600 text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-	<!-- Custom focus styling -->
-	<button
-		class="px-4 py-2 bg-blue-600 text-white rounded focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-600">
-		<!-- Focus-visible for keyboard-only focus -->
-		<button
-			class="px-4 py-2 bg-blue-600 text-white rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
-			<!-- Skip links -->
-			<a
-				href="#main"
-				class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 bg-blue-600 text-white p-2 z-50">
-				Skip to main content
-			</a>
-		</button>
-	</button>
+	Button with focus ring
+</button>
+
+<!-- Focus-visible for keyboard-only focus -->
+<button
+	class="px-4 py-2 bg-blue-600 text-white rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
+	Keyboard focus only
 </button>
 ```
 
